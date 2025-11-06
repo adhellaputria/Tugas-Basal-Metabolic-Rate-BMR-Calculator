@@ -1,15 +1,15 @@
-name: bmi_app
-description: A BMI Calculator app
+name: bmi_app  # Nama aplikasi
+description: A BMI Calculator app  # Deskripsi aplikasi
 
-# Tambahkan SDK constraint di sini
+# Menambahkan SDK constraint untuk Flutter versi 3.9.0 hingga 4.0.0
 environment:
-  sdk: ">=3.9.0 <4.0.0"
+  sdk: ">=3.9.0 <4.0.0"  # Versi SDK yang digunakan, memastikan aplikasi kompatibel dengan versi tersebut
 
 dependencies:
   flutter:
-    sdk: flutter
-  font_awesome_flutter: ^10.6.0
+    sdk: flutter  # Dependensi utama, memastikan aplikasi menggunakan SDK Flutter
+  font_awesome_flutter: ^10.6.0  # Menambahkan dependensi untuk menggunakan ikon FontAwesome (versi 10.6.0)
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter
+    sdk: flutter  # Dependensi untuk pengujian Flutter, digunakan untuk pengujian unit dan widget
