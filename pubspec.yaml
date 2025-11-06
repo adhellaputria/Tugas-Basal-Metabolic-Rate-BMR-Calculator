@@ -1,0 +1,15 @@
+name: bmi_app
+description: A BMI Calculator app
+
+# Tambahkan SDK constraint di sini
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
