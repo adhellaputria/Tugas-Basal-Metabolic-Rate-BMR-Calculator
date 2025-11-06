@@ -6,8 +6,8 @@ class IconCard extends StatelessWidget {
   // Konstruktor untuk menerima ikon dan caption (teks)
   IconCard({this.cardIcon, required this.caption});
 
-  final IconData? cardIcon;  // Ikon yang akan ditampilkan dalam kartu
-  final String caption;     // Teks yang akan ditampilkan di bawah ikon
+  final IconData? cardIcon;  // Ikon yang  ditampilkan dalam kartu
+  final String caption;     // Teks yang ditampilkan di bawah ikon
 
   @override
   Widget build(BuildContext context) {
