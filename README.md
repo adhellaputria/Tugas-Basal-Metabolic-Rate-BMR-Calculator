@@ -1,4 +1,4 @@
-### TUGAS BMR CALCULATOR PPB
+# TUGAS BMR CALCULATOR PPB
 
 ## 👥 Anggota Kelompok
 Adella Putri Ayu (K3523002)
