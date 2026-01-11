@@ -28,6 +28,7 @@ Dengan demikian, pengguna tidak hanya mengetahui nilai BMR-nya, tetapi juga mema
 
 ## ▶️ Tampilan Aplikasi
 <img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/63d484e8-2031-41a9-93b8-d1c6b83fdbb0” />
+
 <img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/a264d041-ca75-41a9-983b-fcc5b3f8d0ad” />
 
 ## Getting Started
