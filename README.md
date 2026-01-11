@@ -1,8 +1,8 @@
 # TUGAS BMR CALCULATOR PPB
 
 ## 👥 Anggota Kelompok
-Adella Putri Ayu (K3523002)
-Ardita Putri Cahyania (K3523018)
+- Adella Putri Ayu (K3523002)
+- Ardita Putri Cahyania (K3523018)
 
 ## 📌 Deskripsi Project
 Tugas Basal Metabolic Rate (BMR) Calculator adalah aplikasi berbasis Flutter yang digunakan untuk menghitung nilai Basal Metabolic Rate (BMR) pengguna berdasarkan data fisik yang dimasukkan. Aplikasi ini dikembangkan sebagai pengembangan dari kalkulator BMI yang dimodifikasi menjadi kalkulator BMR sesuai dengan referensi yang diberikan.
