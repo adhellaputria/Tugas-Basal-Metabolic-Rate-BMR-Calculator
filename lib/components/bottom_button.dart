@@ -1,24 +1,34 @@
-import 'package:flutter/material.dart';  // Mengimpor paket Material Design untuk membangun antarmuka pengguna
-import 'package:bmi_app/constants.dart';  // Mengimpor konstanta untuk warna dan gaya teks
+import 'package:flutter/material.dart';
+import 'package:bmi_app/constants.dart';
 
-// Widget BottomButton untuk menampilkan tombol di bagian bawah layar
+// ============================================================================
+// BOTTOM BUTTON
+// ----------------------------------------------------------------------------
+// Widget tombol besar yang digunakan sebagai tombol utama aplikasi,
+// seperti tombol "CALCULATE" dan "RE-CALCULATE". Tombol ini menempel
+// di bagian bawah layar (full width) dan memiliki gaya konsisten.
+// ============================================================================
+
 class BottomButton extends StatelessWidget {
-  // Konstruktor untuk menerima judul tombol dan aksi saat tombol ditekan
   BottomButton({required this.buttonTitle, required this.onTap});
 
-  final String buttonTitle;  // Judul teks yang ditampilkan pada tombol
-  final Function() onTap;    // Fungsi yang dijalankan saat tombol ditekan
+  final String buttonTitle; // Teks yang tampil di tombol
+  final Function() onTap; // Fungsi yang dijalankan saat tombol ditekan
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // Menangani interaksi sentuhan dengan tombol
-      onTap: onTap,  // Menjalankan aksi yang diteruskan ke parameter onTap
+      onTap: onTap, // Menangani aksi tekan tombol
       child: Container(
-        margin: const EdgeInsets.only(top: 10.0),  // Memberikan jarak atas pada tombol
-        height: bottomContainerHeight,  // Menentukan tinggi tombol
-        color: bottomContainerColor,  // Menetapkan warna latar belakang tombol
-        child: Center(child: Text(buttonTitle, style: buttonTextStyle)),  // Menampilkan teks tombol di tengah
+        margin: const EdgeInsets.only(top: 10.0), // Spasi atas tombol
+        height: bottomContainerHeight, // Tinggi tombol dari constants.dart
+        color: bottomContainerColor, // Warna tombol dari constants.dart
+        child: Center(
+          child: Text(
+            buttonTitle, // Teks tombol
+            style: buttonTextStyle, // Gaya tulisan dari constants.dart
+          ),
+        ),
       ),
     );
   }
