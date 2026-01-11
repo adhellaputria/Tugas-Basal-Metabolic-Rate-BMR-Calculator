@@ -27,10 +27,8 @@ Dengan demikian, pengguna tidak hanya mengetahui nilai BMR-nya, tetapi juga mema
 - Tampilan antarmuka sederhana dan responsif menggunakan Material Design
 
 ## ▶️ Tampilan Aplikasi
-<img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/63d484e8-2031-41a9-93b8-d1c6b83fdbb0” />
-
-<img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/a264d041-ca75-41a9-983b-fcc5b3f8d0ad” />
-
+<img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/b9c13803-2be9-45ff-83f2-808885b8452e” />
+<img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/53875614-c9bc-4195-a973-34d87a511640” />
 ## Getting Started
 
 This project is a starting point for a Flutter application.
