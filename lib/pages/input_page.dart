@@ -1,14 +1,23 @@
-import 'package:flutter/material.dart';  // Mengimpor paket Material Design untuk membangun antarmuka pengguna
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';  // Mengimpor ikon dari FontAwesome
-import 'package:bmi_app/components/custom_card.dart';  // Mengimpor widget CustomCard
-import 'package:bmi_app/components/icon_card.dart';  // Mengimpor widget IconCard
-import 'package:bmi_app/constants.dart';  // Mengimpor konstanta seperti warna dan gaya teks
-import 'package:bmi_app/pages/result_page.dart';  // Mengimpor halaman ResultPage untuk menampilkan hasil BMI
-import 'package:bmi_app/components/bottom_button.dart';  // Mengimpor widget BottomButton
-import 'package:bmi_app/components/round_icon_button.dart';  // Mengimpor widget RoundIconButton
-import 'package:bmi_app/calculator.dart';  // Mengimpor kalkulator untuk menghitung BMI
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bmi_app/components/custom_card.dart';
+import 'package:bmi_app/components/icon_card.dart';
+import 'package:bmi_app/constants.dart';
+import 'package:bmi_app/pages/result_page.dart';
+import 'package:bmi_app/components/bottom_button.dart';
+import 'package:bmi_app/components/round_icon_button.dart';
+import 'package:bmi_app/calculator.dart';
 
-// Halaman InputPage dengan input tinggi badan, berat badan, dan jenis kelamin
+// ============================================================================
+// INPUT PAGE
+// ----------------------------------------------------------------------------
+// Halaman ini memungkinkan pengguna memasukkan data:
+// - Gender
+// - Tinggi badan (dengan slider)
+// - Berat badan (dengan tombol + dan -)
+// Setelah itu pengguna dapat menekan tombol CALCULATE untuk melihat hasil BMI.
+// ============================================================================
+
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -17,51 +26,55 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender = Gender.male;  // Menyimpan pilihan jenis kelamin, defaultnya pria
-  int height = 160;  // Menyimpan tinggi badan, defaultnya 160 cm
-  int weight = 60;   // Menyimpan berat badan, defaultnya 60 kg
+  // Nilai default
+  Gender selectedGender = Gender.male;
+  int height = 160;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('BMI CALCULATOR')),  // Judul aplikasi
+      appBar: AppBar(title: const Text('BMI CALCULATOR')),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,  // Memastikan kolom mengambil ruang penuh
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Pemilihan jenis kelamin
+          // ==================================================================
+          // 1. PILIH JENIS KELAMIN
+          // ==================================================================
           Expanded(
             child: Row(
               children: [
-                // Kartu untuk memilih jenis kelamin laki-laki
+                // Card untuk male
                 Expanded(
                   child: CustomCard(
                     color: selectedGender == Gender.male
-                        ? activeCardColor  // Jika jenis kelamin pria terpilih, kartu aktif
-                        : inactiveCardColor,  // Jika tidak, kartu tidak aktif
+                        ? activeCardColor // Jika dipilih
+                        : inactiveCardColor, // Jika tidak dipilih
                     cardChild: IconCard(
-                      cardIcon: FontAwesomeIcons.mars,  // Ikon untuk laki-laki
-                      caption: 'MALE',  // Teks untuk laki-laki
+                      cardIcon: FontAwesomeIcons.mars,
+                      caption: 'MALE',
                     ),
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.male;  // Setel jenis kelamin ke pria saat kartu ditekan
+                        selectedGender = Gender.male;
                       });
                     },
                   ),
                 ),
-                // Kartu untuk memilih jenis kelamin perempuan
+
+                // Card untuk female
                 Expanded(
                   child: CustomCard(
                     color: selectedGender == Gender.female
-                        ? activeCardColor  // Jika jenis kelamin wanita terpilih, kartu aktif
-                        : inactiveCardColor,  // Jika tidak, kartu tidak aktif
+                        ? activeCardColor
+                        : inactiveCardColor,
                     cardChild: IconCard(
-                      cardIcon: FontAwesomeIcons.venus,  // Ikon untuk wanita
-                      caption: 'FEMALE',  // Teks untuk wanita
+                      cardIcon: FontAwesomeIcons.venus,
+                      caption: 'FEMALE',
                     ),
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.female;  // Setel jenis kelamin ke wanita saat kartu ditekan
+                        selectedGender = Gender.female;
                       });
                     },
                   ),
@@ -69,30 +82,37 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          // Pemilih tinggi badan menggunakan slider
+
+          // ==================================================================
+          // 2. SLIDER UNTUK TINGGI BADAN
+          // ==================================================================
           Expanded(
             child: CustomCard(
-              color: activeCardColor,  // Warna kartu aktif
+              color: activeCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('HEIGHT', style: labelTextStyle),  // Label tinggi badan
+                  const Text('HEIGHT', style: labelTextStyle),
+
+                  // Menampilkan angka tinggi (contoh: 160 cm)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text(height.toString(), style: numberTextStyle),  // Menampilkan tinggi badan
-                      const Text('cm', style: labelTextStyle),  // Satuan cm
+                      Text(height.toString(), style: numberTextStyle),
+                      const Text('cm', style: labelTextStyle),
                     ],
                   ),
+
+                  // Slider nilai tinggi
                   Slider(
-                    value: height.toDouble(),  // Menampilkan nilai slider
-                    min: 120.0,  // Nilai minimum slider
-                    max: 220.0,  // Nilai maksimum slider
+                    value: height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
                     onChanged: (double value) {
                       setState(() {
-                        height = value.round();  // Mengupdate nilai tinggi badan saat slider digeser
+                        height = value.round(); // Update tinggi
                       });
                     },
                   ),
@@ -100,39 +120,44 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
-          // Pemilih berat badan menggunakan tombol minus dan plus
+
+          // ==================================================================
+          // 3. TOMBOL UNTUK MENGATUR BERAT BADAN
+          // ==================================================================
           Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: CustomCard(
-                    color: activeCardColor,  // Warna kartu aktif
+                    color: activeCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('WEIGHT', style: labelTextStyle),  // Label berat badan
-                        Text(weight.toString(), style: numberTextStyle),  // Menampilkan berat badan
+                        const Text('WEIGHT', style: labelTextStyle),
+
+                        // Menampilkan angka berat badan
+                        Text(weight.toString(), style: numberTextStyle),
+
+                        // Tombol tambah dan kurang berat badan
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // Tombol minus untuk mengurangi berat badan
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
                                   if (weight >= 30) {
-                                    weight--;  // Mengurangi berat badan jika lebih dari 30 kg
+                                    weight--;
                                   }
                                 });
                               },
                             ),
-                            const SizedBox(width: 10.0),  // Jarak antara tombol
-                            // Tombol plus untuk menambah berat badan
+                            const SizedBox(width: 10.0),
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
                               onPressed: () {
                                 setState(() {
-                                  weight++;  // Menambah berat badan
+                                  weight++;
                                 });
                               },
                             ),
@@ -145,21 +170,26 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          // Tombol untuk menghitung BMI
+
+          // ==================================================================
+          // 4. TOMBOL CALCULATE
+          // ==================================================================
           BottomButton(
-            buttonTitle: 'CALCULATE',  // Judul tombol
+            buttonTitle: 'CALCULATE',
             onTap: () {
-              // Membuat objek Calculator untuk menghitung BMI
+              // Membuat instance class Calculator untuk menghitung BMI
               Calculator cal = Calculator(
                 height: height,
                 weight: weight,
                 gender: selectedGender,
               );
-              // Menghitung nilai BMI, hasil, dan interpretasi
+
+              // Mengambil hasil dari class Calculator
               String bmi = cal.calculateBMI();
               String result = cal.getResult();
               String information = cal.getInterpretation();
-              // Arahkan ke halaman ResultPage dengan membawa hasil perhitungan
+
+              // Menavigasi ke halaman ResultPage sambil mengirim data hasil
               Navigator.push(
                 context,
                 MaterialPageRoute(
