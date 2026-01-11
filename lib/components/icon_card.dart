@@ -1,23 +1,32 @@
-import 'package:flutter/material.dart';  // Mengimpor paket Material Design untuk membangun antarmuka pengguna
-import 'package:bmi_app/constants.dart';  // Mengimpor konstanta untuk gaya teks dan elemen lainnya
+import 'package:flutter/material.dart';
+import 'package:bmi_app/constants.dart';
 
-// Widget IconCard untuk menampilkan kartu dengan ikon dan teks
+// ============================================================================
+// ICON CARD
+// ----------------------------------------------------------------------------
+// Widget sederhana untuk menampilkan ikon besar dan teks di bawahnya.
+// Digunakan untuk card pilihan gender (MALE / FEMALE).
+// ============================================================================
+
 class IconCard extends StatelessWidget {
-  // Konstruktor untuk menerima ikon dan caption (teks)
+  // Konstruktor, cardIcon boleh null, caption wajib
   IconCard({this.cardIcon, required this.caption});
 
-  final IconData? cardIcon;  // Ikon yang  ditampilkan dalam kartu
-  final String caption;     // Teks yang ditampilkan di bawah ikon
+  final IconData?
+  cardIcon; // Ikon yang akan ditampilkan (contoh: FontAwesomeIcons.mars)
+  final String caption; // Teks label di bawah ikon
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,  // Menyusun elemen di tengah kolom
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Menampilkan ikon dengan ukuran 70
+        // Ikon besar di tengah kartu
         Icon(cardIcon, size: 70.0),
-        const SizedBox(height: 15.0),  // Memberikan jarak vertikal antara ikon dan teks
-        // Menampilkan caption (teks) dengan gaya labelTextStyle
+
+        const SizedBox(height: 15.0),
+
+        // Caption menggunakan style standar dari constants.dart
         Text(caption, style: labelTextStyle),
       ],
     );
