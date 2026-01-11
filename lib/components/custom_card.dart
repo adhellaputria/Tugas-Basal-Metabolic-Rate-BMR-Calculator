@@ -1,27 +1,36 @@
-import 'package:flutter/material.dart';  // Mengimpor paket Material Design untuk membangun antarmuka pengguna
+import 'package:flutter/material.dart';
 
-// Widget CustomCard untuk menampilkan kartu yang dapat disesuaikan
+// ============================================================================
+// CUSTOM CARD
+// ----------------------------------------------------------------------------
+// Widget reusable yang digunakan untuk membungkus konten seperti card gender,
+// slider tinggi badan, dan card berat badan. Widget ini fleksibel karena bisa
+// menampung child dan memiliki fungsi onTap opsional.
+// ============================================================================
+
 class CustomCard extends StatelessWidget {
-  // Konstruktor untuk menerima warna kartu, anak kartu, dan aksi saat kartu ditekan
+  // Konstruktor menerima:
+  // - color      → warna background kartu
+  // - cardChild  → isi widget di dalam kartu
+  // - onPress    → fungsi yang dijalankan saat kartu ditekan (optional)
   CustomCard({required this.color, this.cardChild, this.onPress});
 
-  final Color color;  // Warna latar belakang kartu
-  final Widget? cardChild;  // Widget anak yang akan ditampilkan di dalam kartu
-  final Function()? onPress;  // Fungsi yang dijalankan saat kartu ditekan
+  final Color color; // Warna background kartu
+  final Widget? cardChild; // Isi widget di dalam kartu
+  final Function()? onPress; // Aksi ketika kartu disentuh (boleh null)
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // Menangani interaksi sentuhan dengan kartu
-      onTap: onPress,  // Menjalankan aksi yang diteruskan ke parameter onPress
+      onTap: onPress, // Memungkinkan kartu bereaksi pada sentuhan
       child: Container(
-        margin: const EdgeInsets.all(15.0),  // Memberikan jarak di sekitar kartu
-        padding: const EdgeInsets.only(left: 1.0, right: 1.0),  // Padding di dalam kartu
+        margin: const EdgeInsets.all(15.0), // Margin sekeliling kartu
+        padding: const EdgeInsets.only(left: 1, right: 1), // Padding minimal
         decoration: BoxDecoration(
-          color: color,  // Menetapkan warna latar belakang kartu
-          borderRadius: BorderRadius.circular(10.0),  // Membuat sudut kartu melengkung
+          color: color, // Warna kartu
+          borderRadius: BorderRadius.circular(10.0), // Sudut melengkung
         ),
-        child: cardChild,  // Menampilkan anak kartu (misalnya, teks, ikon, atau elemen lain)
+        child: cardChild, // Konten kartu
       ),
     );
   }
