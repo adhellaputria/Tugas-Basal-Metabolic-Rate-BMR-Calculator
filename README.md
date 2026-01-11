@@ -1,3 +1,9 @@
+## TUGAS BMR CALCULATOR PPB
+
+# Nama Anggota
+Adella Putri Ayu (K3523002)
+Ardita Putri Cahyania (K3523018)
+
 # bmi_app
 
 A new Flutter project.
