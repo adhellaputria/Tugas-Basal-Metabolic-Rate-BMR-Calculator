@@ -1,68 +1,80 @@
-import 'package:flutter/material.dart';  // Mengimpor paket Material Design untuk membangun antarmuka pengguna
-import 'package:bmi_app/components/custom_card.dart';  // Mengimpor widget CustomCard untuk menampilkan kartu
-import 'package:bmi_app/constants.dart';  // Mengimpor konstanta untuk warna dan gaya teks
-import 'package:bmi_app/components/bottom_button.dart';  // Mengimpor widget BottomButton untuk tombol bawah
+import 'package:flutter/material.dart';
+import 'package:bmi_app/components/custom_card.dart';
+import 'package:bmi_app/constants.dart';
+import 'package:bmi_app/components/bottom_button.dart';
 
-// Halaman ResultPage untuk menampilkan hasil perhitungan BMI
+// ============================================================================
+// RESULT PAGE
+// ----------------------------------------------------------------------------
+// Halaman ini menampilkan hasil perhitungan BMI yang sudah dihitung
+// di class Calculator. Page ini menerima tiga data:
+// - result       → kategori BMI (overweight/normal/underweight)
+// - bmi          → nilai BMI
+// - information  → interpretasi sesuai hasil BMI
+// ============================================================================
+
 class ResultPage extends StatelessWidget {
-  // Konstruktor untuk menerima hasil, BMI, dan informasi interpretasi
   const ResultPage({
-    required this.result,  // Menyimpan hasil (Overweight, Normal, Underweight)
-    required this.bmi,     // Menyimpan nilai BMI
-    required this.information,  // Menyimpan interpretasi hasil
+    required this.result,
+    required this.bmi,
+    required this.information,
   });
 
-  final String result;  // Hasil kategori BMI (Overweight, Normal, Underweight)
-  final String bmi;     // Nilai BMI
-  final String information;  // Interpretasi tentang BMI
+  final String result; // Kategori BMI
+  final String bmi; // Nilai BMI sebagai string
+  final String information; // Kalimat penjelasan BMI
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('BMI CALCULATOR')),  // Judul halaman
+      appBar: AppBar(title: const Text('BMI CALCULATOR')),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,  // Menyebarkan widget secara merata
-        crossAxisAlignment: CrossAxisAlignment.stretch,  // Menyebarkan widget ke seluruh lebar layar
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Judul 'Your Result'
+          // Judul "Your Result"
           Expanded(
             child: Container(
-              padding: const EdgeInsets.all(15.0),  // Padding di sekitar teks
-              alignment: Alignment.bottomLeft,  // Menyusun teks ke kiri bawah
+              padding: const EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
               child: const Text(
-                'Your Result',  // Teks yang ditampilkan sebagai judul
-                style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold),  // Gaya teks
+                'Your Result',
+                style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold),
               ),
             ),
           ),
-          // Kartu untuk menampilkan hasil BMI
+
+          // Kartu utama berisi hasil BMI
           Expanded(
-            flex: 5,  // Menyediakan ruang lebih banyak untuk hasil
+            flex: 5,
             child: CustomCard(
-              color: activeCardColor,  // Menggunakan warna kartu aktif
+              color: activeCardColor,
               cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,  // Menyebarkan elemen secara merata
-                crossAxisAlignment: CrossAxisAlignment.center,  // Menyusun elemen di tengah
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Menampilkan hasil kategori BMI
+                  // Kategori (NORMAL / OVERWEIGHT / UNDERWEIGHT)
                   Text(result, style: resultTextStyle),
-                  // Menampilkan nilai BMI
+
+                  // Nilai BMI
                   Text(bmi, style: bmiTextStyle),
-                  // Menampilkan informasi interpretasi BMI
+
+                  // Penjelasan tambahan
                   Text(
                     information,
-                    textAlign: TextAlign.center,  // Menyusun teks di tengah
-                    style: const TextStyle(fontSize: 22.0),  // Gaya teks untuk interpretasi
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 22.0),
                   ),
                 ],
               ),
             ),
           ),
-          // Tombol untuk kembali dan menghitung ulang
+
+          // Tombol untuk kembali ke halaman input
           BottomButton(
-            buttonTitle: 'RE-CALCULATE',  // Teks tombol
+            buttonTitle: 'RE-CALCULATE',
             onTap: () {
-              Navigator.pop(context);  // Kembali ke halaman sebelumnya untuk menghitung ulang
+              Navigator.pop(context); // Kembali ke input
             },
           ),
         ],
