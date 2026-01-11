@@ -1,12 +1,34 @@
 ## TUGAS BMR CALCULATOR PPB
 
-# Nama Anggota
+# 👥 Anggota Kelompok
 Adella Putri Ayu (K3523002)
 Ardita Putri Cahyania (K3523018)
 
-# bmi_app
-A new Flutter project.
-![Image](https://github.com/user-attachments/assets/99e17477-d82b-44f7-9c65-936ccf3ce9ad)
+# 📌 Deskripsi Project
+Tugas Basal Metabolic Rate (BMR) Calculator adalah aplikasi berbasis Flutter yang digunakan untuk menghitung nilai Basal Metabolic Rate (BMR) pengguna berdasarkan data fisik yang dimasukkan. Aplikasi ini dikembangkan sebagai pengembangan dari kalkulator BMI yang dimodifikasi menjadi kalkulator BMR sesuai dengan referensi yang diberikan.
+
+Pada aplikasi ini, pengguna dapat memilih jenis kelamin (male/female), mengatur tinggi badan (cm) menggunakan slider, serta memasukkan berat badan (kg) menggunakan tombol penambah dan pengurang. Setelah semua data dimasukkan, pengguna dapat menekan tombol Calculate untuk melakukan proses perhitungan BMR.
+
+Setelah proses perhitungan selesai, aplikasi akan menampilkan hasil perhitungan BMR sekaligus memberikan informasi mengenai kategori berat badan pengguna berdasarkan nilai BMI (Body Mass Index). Kategori yang ditampilkan bisa berupa:
+
+Underweight → jika berat badan kurang dari standar normal
+
+Normal → jika berat badan sesuai dengan rentang ideal
+
+Overweight → jika berat badan berada di atas standar normal
+
+Dengan demikian, pengguna tidak hanya mengetahui nilai BMR-nya, tetapi juga memahami status berat badan mereka.
+
+## 🎯 Fitur Aplikasi
+- Pemilihan *jenis kelamin (Male / Female)*
+- Input *tinggi badan (cm)* menggunakan slider
+- Input *berat badan (kg)* menggunakan tombol tambah dan kurang
+- Tombol *Calculate* untuk melakukan perhitungan BMR
+- Tampilan antarmuka sederhana dan responsif menggunakan Material Design
+
+## ▶️ Tampilan Aplikasi
+<img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/63d484e8-2031-41a9-93b8-d1c6b83fdbb0” />
+<img width="1206" height="2622" alt="Image" src="https://github.com/user-attachments/assets/a264d041-ca75-41a9-983b-fcc5b3f8d0ad” />
 
 ## Getting Started
 
